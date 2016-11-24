@@ -13,6 +13,7 @@ function generateBlog(package_path, dl_url, s3_bucket, region, context) {
         var zip = new AdmZip("/tmp/master.zip");
         try {
         	zip.extractAllTo(package_path);
+		fs.unlink('/tmp/master.zip');
         	next(null)
         } catch (err) {
         	next(err)
